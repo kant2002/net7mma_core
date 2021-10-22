@@ -1817,7 +1817,7 @@ namespace Media.Rtsp
                     //They are not discarded just not receieved until the first receive.
                     if (server.IsBound && IsRunning)
                     {
-                        clientSocket = server.EndAccept(ar);
+                        clientSocket = server.EndAccept(out _, ar);
 
                         //Configuring the server?
                         //ConfigureRtspServerSocket(server, out interframeGap, ref reconfigure, clientSocket);
@@ -2279,7 +2279,7 @@ namespace Media.Rtsp
                     else requestedSessionId = requestedSessionId.Trim();
 
                     //If the given session does not have a sessionId or does not match the sessionId requested.
-                    if (session.SessionId.Equals(requestedSessionId).Equals(false))
+                    if (session.SessionId != requestedSessionId)
                     {
                         //Find any session which has the given id.
                         IEnumerable<ClientSession> matches = GetSessions(requestedSessionId);
@@ -3073,8 +3073,11 @@ namespace Media.Rtsp
             Sdp.MediaDescription mediaDescription;
 
             if ((symbolIndex = track.IndexOf('=')) >= 0 && int.TryParse(Media.Common.ASCII.ExtractNumber(track, symbolIndex, track.Length), System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out trackId)) mediaDescription = found.SessionDescription.GetMediaDescription(trackId - 1);
-            else mediaDescription = found.SessionDescription.MediaDescriptions.FirstOrDefault(md => string.Compare(track, md.MediaType.ToString(), true, System.Globalization.CultureInfo.InvariantCulture).Equals(0));
-
+            else
+            {
+                // mediaDescription = found.SessionDescription.MediaDescriptions.FirstOrDefault(md => string.Compare(track, md.MediaType.ToString(), true, System.Globalization.CultureInfo.InvariantCulture).Equals(0));
+                mediaDescription = found.SessionDescription.MediaDescriptions.FirstOrDefault();
+            }
             ////Find the MediaDescription for the request based on the track variable
             //foreach (Sdp.MediaDescription md in found.SessionDescription.MediaDescriptions)
             //{
