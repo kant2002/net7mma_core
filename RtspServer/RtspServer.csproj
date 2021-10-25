@@ -1,7 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Media.RtspServer</AssemblyName>
   </PropertyGroup>
@@ -18,7 +17,6 @@
     <ProjectReference Include="..\Codecs\Mpeg\Mpeg.csproj" />
     <ProjectReference Include="..\Codecs\Video\Codecs.Video.csproj" />
     <ProjectReference Include="..\Codecs\Video\H264\Codec.H264.csproj" />
-    <ProjectReference Include="..\Codecs\Video\Mpeg2\Mpeg2.csproj" />
     <ProjectReference Include="..\Codecs\Video\Mpeg4\Mpeg4.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Containers\BaseMedia\Container.BaseMedia.csproj" />

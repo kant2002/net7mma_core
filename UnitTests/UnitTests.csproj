@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Codecs\Audio\Aac\Codec.Aac.csproj" />
     <ProjectReference Include="..\Codecs\Audio\AC3\Codec.AC3.csproj" />
     <ProjectReference Include="..\Codecs\Audio\Alaw\Codec.Alaw.csproj" />
     <ProjectReference Include="..\Codecs\Audio\Codecs.Audio.csproj" />
@@ -26,7 +25,6 @@
     <ProjectReference Include="..\Codecs\Mpeg\Mpeg.csproj" />
     <ProjectReference Include="..\Codecs\Video\Codecs.Video.csproj" />
     <ProjectReference Include="..\Codecs\Video\H264\Codec.H264.csproj" />
-    <ProjectReference Include="..\Codecs\Video\Mpeg2\Mpeg2.csproj" />
     <ProjectReference Include="..\Codecs\Video\Mpeg4\Mpeg4.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Concepts\Concepts.csproj" />

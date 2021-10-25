@@ -41,7 +41,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace Media.UnitTests
 {
@@ -133,9 +133,10 @@ namespace Media.UnitTests
         /// The entry point of the unit testing application
         /// </summary>
         /// <param name="args"></param>
-        [MTAThread]
+        [STAThread]
         public static void Main(string[] args)
         {
+            RtspInspector();
             //Run the main tests
             foreach (Action test in LogicTests) RunTest(test);
 
@@ -4779,5 +4780,19 @@ a=appversion:1.0");
         }
 
         #endregion
+
+        static void RtspInspector()
+        {
+            var f = new UnitTests.RtspInspector();
+
+            Application.Run(f);
+        }
+
+        static void ContainerInspector()
+        {
+            var f = new UnitTests.ContainerInspector();
+
+            Application.Run(f);
+        }
     }
 }
